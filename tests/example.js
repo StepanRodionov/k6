@@ -12,7 +12,7 @@ export function setup() {
 export default function (data) {
     // сценарий пользователя
 
-    console.log(demo);
+    console.log(demo.getAnswer());  // выведет 42, а код в пакете /plugins/demo
 }
 
 export function teardown(data) {
