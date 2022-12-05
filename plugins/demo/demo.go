@@ -10,6 +10,6 @@ func init() {
 
 type Demo struct{}
 
-func (*Demo) getAnswer() int {
+func (*Demo) GetAnswer() int {
 	return 42
 }
