@@ -1,0 +1,49 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="example" type="K6ConfigurationType" factoryName="k6" show_console_on_std_err="false" show_console_on_std_out="false">
+    <option name="allowRunningInParallel" value="false" />
+    <option name="data">
+      <K6RunData>
+        <option name="additionalParams" value="--out json=test.json" />
+        <option name="envs">
+          <map>
+            <entry key="HOLD" value="30" />
+            <entry key="HOST" value="ya.ru" />
+            <entry key="PORT" value="80" />
+            <entry key="PROTOCOL" value="https" />
+            <entry key="TPS" value="5" />
+          </map>
+        </option>
+        <option name="pty" value="true" />
+        <option name="script" value="tests/example.js" />
+        <option name="thresholdsAsTests" value="true" />
+        <option name="type" value="local" />
+      </K6RunData>
+    </option>
+    <option name="projectPathOnTarget" />
+    <option name="selectedOptions">
+      <list />
+    </option>
+    <option name="additionalParams" value="--out json=test.json" />
+    <option name="envs">
+      <map>
+        <entry key="HOLD" value="30" />
+        <entry key="HOST" value="ya.ru" />
+        <entry key="PORT" value="80" />
+        <entry key="PROTOCOL" value="https" />
+        <entry key="TPS" value="5" />
+      </map>
+    </option>
+    <option name="pty" value="true" />
+    <option name="script" value="tests/example.js" />
+    <option name="thresholdsAsTests" value="true" />
+    <option name="type" value="local" />
+    <envs>
+      <env name="PROTOCOL" value="https" />
+      <env name="HOST" value="ya.ru" />
+      <env name="PORT" value="80" />
+      <env name="TPS" value="5" />
+      <env name="HOLD" value="30" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
