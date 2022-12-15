@@ -1,6 +1,12 @@
 # k6
 
-Описание инструмента
+k6 представляет собой инструмент для проведения нагрузочного тестирования. Основные его достоинства заключаются в простоте освоения, 
+превосходной гибкости и ориентации разработчиков. Чтобы написать мощный сценарий нагрузочного тестирования достаточно базовых знаний JS.
+
+Проект является открытым и поддерживается компанией Grafana.
+
+- Репозиторий проекта: https://github.com/grafana/k6
+- Документация: https://k6.io/docs/
 
 ## Запуск
 
@@ -206,6 +212,11 @@ docker push registry.ru/namespace/project:tag
 ### Пример болванки скрипта:
 
 ```javascript
+import http from 'k6/http';
+import {check} from 'k6';
+import papaparse from './lib/papaparse.js';
+import {SharedArray} from 'k6/data';
+
 // Здесь происходит настройка сценария
 export const options = {
     scenarios: {
@@ -232,9 +243,28 @@ export function setup() {
 
 export default function (data) {
     // сценарий пользователя
+    let body = '';
+    let res;
+  
+    // Делаем запрос
+    res = http.post(`${MY_HOST}/v1/products/search`, body, {
+        headers: {},
+        tags: {"name": "Мой запрос"}
+    })
+    // Проверяем код результата
+    check(res, {"check 200 POST /v1/products/search": (res) => res.status === 200})
 }
 
 export function teardown(data) {
     // функция которая должна выполниться по завершению сценария
 }
 ```
+
+## Здорово! А что еще почитать по теме?
+
+Вот полезные статьи, которые помогут глубже изучить инструмент:
+
+- https://testengineer.ru/testirovanie-proizvoditelnosti-api-s-pomoshchyu-k6/ 
+- https://questu.ru/articles/61043/ 
+- https://habr.com/ru/company/vk/blog/563446/ 
+- https://www.swe-notes.ru/post/xk6-egts/
